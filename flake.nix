@@ -53,6 +53,16 @@
 	  done
 	      '';
 
+      system.defaults = {
+        dock.persistent-apps = [
+          "${pkgs.obsidian}/Applications/Obsidian.app"
+        ];
+	dock.show-recents = false;
+	dock.persistent-others = [];
+        NSGlobalDomain.AppleInterfaceStyle = "Dark";
+        NSGlobalDomain."com.apple.swipescrolldirection" = false;
+      };
+
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
