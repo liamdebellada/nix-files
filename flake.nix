@@ -59,6 +59,7 @@
         ];
 	dock.show-recents = false;
 	dock.persistent-others = [];
+	loginwindow.GuestEnabled = false;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain."com.apple.swipescrolldirection" = false;
       };
