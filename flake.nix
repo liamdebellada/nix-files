@@ -59,6 +59,8 @@
         ];
 	dock.show-recents = false;
 	dock.persistent-others = [];
+	dock.orientation = "left";
+        dock.autohide = true;
 	loginwindow.GuestEnabled = false;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain."com.apple.swipescrolldirection" = false;
