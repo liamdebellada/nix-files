@@ -21,6 +21,7 @@
 	  pkgs.neovim
 	  pkgs.mkalias
 	  pkgs.obsidian
+          pkgs.iterm2
         ];
 
 	homebrew = {
@@ -56,6 +57,7 @@
       system.defaults = {
         dock.persistent-apps = [
           "${pkgs.obsidian}/Applications/Obsidian.app"
+          "${pkgs.iterm2}/Applications/iTerm2.app"
         ];
 	dock.show-recents = false;
 	dock.persistent-others = [];
