@@ -22,6 +22,7 @@
 	  pkgs.mkalias
 	  pkgs.obsidian
           pkgs.iterm2
+	  pkgs.google-chrome
         ];
 
 	homebrew = {
@@ -58,6 +59,7 @@
         dock.persistent-apps = [
           "${pkgs.obsidian}/Applications/Obsidian.app"
           "${pkgs.iterm2}/Applications/iTerm2.app"
+          "${pkgs.google-chrome}/Applications/Google Chrome.app"
         ];
 	dock.show-recents = false;
 	dock.persistent-others = [];
