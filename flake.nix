@@ -6,9 +6,11 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
   let
     configuration = { pkgs, config, ... }: {
 	
@@ -23,6 +25,7 @@
 	  pkgs.obsidian
           pkgs.iterm2
 	  pkgs.google-chrome
+	  pkgs.ripgrep
         ];
 
 	homebrew = {
@@ -54,6 +57,9 @@
 	    ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
 	  done
 	      '';
+
+      users.users.liamdebell.home = "/Users/liamdebell";
+      nix.configureBuildUsers = true;
 
       system.defaults = {
         dock.persistent-apps = [
@@ -109,6 +115,12 @@
             # User owning the Homebrew prefix
             user = "liamdebell";
           };
+	}
+	home-manager.darwinModules.home-manager
+	{
+	  home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.liamdebell = import ./home.nix;
 	}
       ];
     };
