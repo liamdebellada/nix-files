@@ -1,7 +1,3 @@
-# Add deno completions to search path
-#if [[ ":$FPATH:" != *":/Users/liamdebell/.zsh/completions:"* ]]; then export FPATH="/Users/liamdebell/.zsh/completions:$FPATH"; fi
-#PATH="/usr/local/bin:$PATH:$HOME/scripts:$HOME/personal/libwebp-1.3.2-mac-arm64/bin"
-
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 #bindkey '^[[A' history-substring-search-up
@@ -13,21 +9,21 @@ bindkey "^[[1;3D" backward-word
 
 #eval $(/opt/homebrew/bin/brew shellenv)
 #eval "$(fnm env --use-on-cd --resolve-engines)"
-#eval "$(fzf --zsh)"
+eval "$(fzf --zsh)"
 
-#export FZF_CTRL_T_OPTS="
-#  --height 100%
-#  --walker-skip .git,node_modules,dist,build
-#  --preview 'bat -n --color=always {}'
-#  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+export FZF_CTRL_T_OPTS="
+  --height 100%
+  --walker-skip .git,node_modules,dist,build
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
 alias grh="git reset --hard @{u}"
 alias vim=nvim
 alias vi=nvim
-#alias ls=eza
-#alias f=fzf
+alias ls=eza
+alias f=fzf
 alias c=pbcopy
-#alias k=kubectl
+alias k=kubectl
 
 # bun completions
 #[ -s "/Users/liamdebell/.bun/_bun" ] && source "/Users/liamdebell/.bun/_bun"

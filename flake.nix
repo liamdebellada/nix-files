@@ -26,6 +26,10 @@
           pkgs.iterm2
 	  pkgs.google-chrome
 	  pkgs.ripgrep
+	  pkgs.eza
+	  pkgs.fzf
+	  pkgs.kubectl
+	  pkgs.fnm
         ];
 
 	homebrew = {
