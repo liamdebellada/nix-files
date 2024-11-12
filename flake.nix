@@ -30,6 +30,7 @@
 	  pkgs.fzf
 	  pkgs.kubectl
 	  pkgs.fnm
+	  pkgs.gh
         ];
 
 	homebrew = {
