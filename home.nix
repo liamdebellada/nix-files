@@ -16,7 +16,14 @@
       # %r gets replaced with a runtime directory, use %% to specify a '%'
       # sign. Runtime dir is $XDG_RUNTIME_DIR on linux and $(getconf
       # DARWIN_USER_TEMP_DIR) on darwin.
-      path = "%r/hello.txt"; 
+      path = "/Users/liamdebell/hello.txt"; 
+    };
+
+    secrets.kubeconfig = {
+      format = "yaml";
+      key = "";
+      sopsFile = ./secrets/kubeconfig.yaml;
+      path = "/Users/liamdebell/.kube/config"; 
     };
   };
 

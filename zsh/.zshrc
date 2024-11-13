@@ -17,6 +17,9 @@ export FZF_CTRL_T_OPTS="
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
+export EDITOR="nvim"
+export SOPS_AGE_KEY_FILE="$HOME/.config/sops/age/keys.txt"
+
 alias grh="git reset --hard @{u}"
 alias vim=nvim
 alias vi=nvim
