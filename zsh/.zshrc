@@ -3,6 +3,8 @@ bindkey "^[[1;3D" backward-word
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+source ~/.env
+
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
