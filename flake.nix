@@ -16,7 +16,7 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, mac-app-util, ... }:
   let
     configuration = { pkgs, config, ... }: {
-	
+
       nixpkgs.config.allowUnfree = true;
 
       # List packages installed in system profile. To search by name, run:
@@ -50,6 +50,7 @@
 	};
 
       users.users.liamdebell.home = "/Users/liamdebell";
+
       nix.configureBuildUsers = true;
 
       system.defaults = {
@@ -92,6 +93,8 @@
 
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
+
+      programs.gnupg.agent.enableSSHSupport = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;

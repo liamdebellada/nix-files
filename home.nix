@@ -26,7 +26,24 @@
       sopsFile = ./secrets/kubeconfig.yaml;
       path = "/Users/liamdebell/.kube/config"; 
     };
+
+    secrets."hetzner/private" = {
+      format = "yaml";
+      sopsFile = ./secrets/ssh-keys-enc.yaml;
+      path = "/Users/liamdebell/.ssh/hetzner-ol"; 
+    };
+
+    secrets."hetzner/public" = {
+      format = "yaml";
+      sopsFile = ./secrets/ssh-keys-enc.yaml;
+      path = "/Users/liamdebell/.ssh/hetzner-ol.pub"; 
+    };
   };
+
+  #users.users.liamdebell.openssh.authorizedKeys.keyFiles = [
+  #  config.sops.secrets."hetzner/public".path
+  #];
+
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -66,5 +83,18 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "confirm";
+    matchBlocks = {
+      "*" = {
+        identityFile = "/Users/liamdebell/.ssh/hetzner-ol";
+      };
+      "github.com" = {
+        identityFile = "/Users/liamdebell/.ssh/id_ed25519";
+      };
+    };
+  };
 }
 
