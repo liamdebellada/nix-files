@@ -29,6 +29,7 @@ alias c=pbcopy
 alias k=kubectl
 
 setopt prompt_subst
+autoload -U compinit && compinit
 
 PROMPT='%F{#c5adde}%~%f%F{#adcdde}%f # '
 
