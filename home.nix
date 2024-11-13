@@ -86,7 +86,7 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "confirm";
+    addKeysToAgent = "yes";
     matchBlocks = {
       "*" = {
         identityFile = "/Users/liamdebell/.ssh/hetzner-ol";
@@ -95,6 +95,28 @@
         identityFile = "/Users/liamdebell/.ssh/id_ed25519";
       };
     };
+  };
+
+  programs.zsh = {
+    enable = true;
+    plugins = [
+      {
+        name = "zsh-history-substring-search";
+        file = "zsh-history-substring-search.plugin.zsh";
+        src = builtins.fetchGit {
+          url = "https://github.com/zsh-users/zsh-history-substring-search";
+          rev = "87ce96b1862928d84b1afe7c173316614b30e301";
+        };
+      }
+      {
+        name = "zsh-autosuggestions";
+        file = "zsh-autosuggestions.plugin.zsh";
+        src = builtins.fetchGit {
+          url = "https://github.com/zsh-users/zsh-autosuggestions";
+          rev = "c3d4e576c9c86eac62884bd47c01f6faed043fc5";
+        };
+      }
+    ];
   };
 }
 

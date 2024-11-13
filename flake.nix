@@ -37,6 +37,8 @@
 	  pkgs.gh
 	  pkgs.sops
 	  pkgs.raycast
+	  pkgs.colima
+	  pkgs.docker
         ];
 
 	homebrew = {
@@ -94,6 +96,7 @@
       # Enable alternative shell support in nix-darwin.
       # programs.fish.enable = true;
 
+      programs.gnupg.agent.enable = true;
       programs.gnupg.agent.enableSSHSupport = true;
 
       # Set Git commit hash for darwin-version.
