@@ -8,9 +8,11 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
   let
     configuration = { pkgs, config, ... }: {
 	
@@ -31,6 +33,7 @@
 	  pkgs.kubectl
 	  pkgs.fnm
 	  pkgs.gh
+	  pkgs.sops
         ];
 
 	homebrew = {
@@ -105,7 +108,8 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."mbpro" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."mbpro" = nix-darwin.lib.darwinSystem rec {
+      specialArgs = { inherit inputs; };
       modules = [
         configuration
 	nix-homebrew.darwinModules.nix-homebrew
@@ -126,6 +130,7 @@
 	  home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.liamdebell = import ./home.nix;
+	  home-manager.extraSpecialArgs = specialArgs;
 	}
       ];
     };
