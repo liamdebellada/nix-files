@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -11,39 +17,38 @@
     # It's also possible to use a ssh key, but only when it has no password:
     #age.sshKeyPaths = [ "/home/user/path-to-ssh-key" ];
     defaultSopsFile = ./secrets/secrets.yaml;
-    secrets.hello = {
+    secrets.groq_api_key = {
       # sopsFile = ./secrets.yml.enc; # optionally define per-secret files
 
       # %r gets replaced with a runtime directory, use %% to specify a '%'
       # sign. Runtime dir is $XDG_RUNTIME_DIR on linux and $(getconf
       # DARWIN_USER_TEMP_DIR) on darwin.
-      path = "/Users/liamdebell/hello.txt"; 
+      path = "/Users/liamdebell/hello.txt";
     };
 
     secrets.kubeconfig = {
       format = "yaml";
       key = "";
       sopsFile = ./secrets/kubeconfig.yaml;
-      path = "/Users/liamdebell/.kube/config"; 
+      path = "/Users/liamdebell/.kube/config";
     };
 
     secrets."hetzner/private" = {
       format = "yaml";
       sopsFile = ./secrets/ssh-keys-enc.yaml;
-      path = "/Users/liamdebell/.ssh/hetzner-ol"; 
+      path = "/Users/liamdebell/.ssh/hetzner-ol";
     };
 
     secrets."hetzner/public" = {
       format = "yaml";
       sopsFile = ./secrets/ssh-keys-enc.yaml;
-      path = "/Users/liamdebell/.ssh/hetzner-ol.pub"; 
+      path = "/Users/liamdebell/.ssh/hetzner-ol.pub";
     };
   };
 
   #users.users.liamdebell.openssh.authorizedKeys.keyFiles = [
   #  config.sops.secrets."hetzner/public".path
   #];
-
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -119,4 +124,3 @@
     ];
   };
 }
-
