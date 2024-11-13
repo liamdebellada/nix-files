@@ -36,6 +36,7 @@
 	  pkgs.fnm
 	  pkgs.gh
 	  pkgs.sops
+	  pkgs.raycast
         ];
 
 	homebrew = {
@@ -64,6 +65,7 @@
 	loginwindow.GuestEnabled = false;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain."com.apple.swipescrolldirection" = false;
+	WindowManager.EnableStandardClickToShowDesktop = false;
       };
 
       system.activationScripts = {
