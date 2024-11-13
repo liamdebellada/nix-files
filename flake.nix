@@ -66,6 +66,7 @@
           nix.configureBuildUsers = true;
 
           system.defaults = {
+	    universalaccess.reduceMotion = true;
             dock.persistent-apps = [
               "${pkgs.obsidian}/Applications/Obsidian.app"
               "${pkgs.iterm2}/Applications/iTerm2.app"
