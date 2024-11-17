@@ -68,6 +68,9 @@
 
           homebrew = {
             enable = true;
+            brews = [
+              "deno"
+            ];
             casks = [
               "firefox@developer-edition"
             ];
