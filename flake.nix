@@ -49,7 +49,7 @@
             pkgs.raycast
             pkgs.colima
             pkgs.docker
-	    pkgs.ollama
+            pkgs.ollama
           ];
 
           homebrew = {
@@ -67,7 +67,7 @@
           nix.configureBuildUsers = true;
 
           system.defaults = {
-	    universalaccess.reduceMotion = true;
+            universalaccess.reduceMotion = true;
             dock.persistent-apps = [
               "${pkgs.obsidian}/Applications/Obsidian.app"
               "${pkgs.iterm2}/Applications/iTerm2.app"
