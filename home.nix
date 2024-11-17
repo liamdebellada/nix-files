@@ -71,11 +71,11 @@
   #  cp ~/.config/nix-darwin/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
   #'';
 
-  #programs.git = {
-  #  enable = true;
-  #  userName = "liamdebellada";
-  #  userEmail = "liamdebell11@gmail.com";
-  #};
+  programs.git = {
+    enable = true;
+    userName = "liamdebellada";
+    userEmail = "liamdebell11@gmail.com";
+  };
 
   programs.gh = {
     enable = true;
