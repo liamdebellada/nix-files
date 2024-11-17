@@ -35,7 +35,6 @@
             pkgs.mkalias
             pkgs.obsidian
             pkgs.iterm2
-            pkgs.google-chrome
             pkgs.ripgrep
             pkgs.eza
             pkgs.fzf
@@ -53,6 +52,9 @@
 
           homebrew = {
             enable = true;
+	    casks = [
+	      "firefox@developer-edition"
+	    ];
             masApps = {
               "Xcode" = 497799835;
             };
@@ -70,7 +72,7 @@
             dock.persistent-apps = [
               "${pkgs.obsidian}/Applications/Obsidian.app"
               "${pkgs.iterm2}/Applications/iTerm2.app"
-              "${pkgs.google-chrome}/Applications/Google Chrome.app"
+	      "/Applications/Firefox Developer Edition.app"
             ];
             dock.show-recents = false;
             dock.persistent-others = [ ];
