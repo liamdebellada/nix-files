@@ -48,13 +48,29 @@
             pkgs.docker
             pkgs.ollama
             pkgs.jetbrains.webstorm
+            pkgs.pnpm
           ];
+
+          launchd.daemons.ollama = {
+            script = ''
+              exec ${pkgs.ollama}/bin/ollama start
+            '';
+            serviceConfig = {
+              EnvironmentVariables = {
+                HOME = "/Users/liamdebell";
+              };
+              KeepAlive = true;
+              RunAtLoad = true;
+              StandardOutPath = "/var/log/ollama.log";
+              StandardErrorPath = "/var/log/ollama.err.log";
+            };
+          };
 
           homebrew = {
             enable = true;
-	    casks = [
-	      "firefox@developer-edition"
-	    ];
+            casks = [
+              "firefox@developer-edition"
+            ];
             masApps = {
               "Xcode" = 497799835;
             };
@@ -72,7 +88,8 @@
             dock.persistent-apps = [
               "${pkgs.obsidian}/Applications/Obsidian.app"
               "${pkgs.iterm2}/Applications/iTerm2.app"
-	      "/Applications/Firefox Developer Edition.app"
+              "/Applications/Firefox Developer Edition.app"
+              "${pkgs.jetbrains.webstorm}/Applications/WebStorm.app"
             ];
             dock.show-recents = false;
             dock.persistent-others = [ ];
