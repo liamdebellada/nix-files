@@ -68,9 +68,9 @@
   };
 
   # iterm2 is not easy to configure, so copying the plist to "~/Library/Preferences" is a bit of a hack.
-  home.activation.copy-iterm2-plist = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    cp ~/.config/nix-darwin/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
-  '';
+  #home.activation.copy-iterm2-plist = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+  #  cp ~/.config/nix-darwin/iterm2/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+  #'';
 
   #programs.git = {
   #  enable = true;
