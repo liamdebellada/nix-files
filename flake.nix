@@ -10,7 +10,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
   outputs =
@@ -20,7 +19,6 @@
       nixpkgs,
       nix-homebrew,
       home-manager,
-      mac-app-util,
       ...
     }:
     let
@@ -50,6 +48,7 @@
             pkgs.colima
             pkgs.docker
             pkgs.ollama
+            pkgs.jetbrains.webstorm
           ];
 
           homebrew = {
@@ -82,6 +81,27 @@
             NSGlobalDomain."com.apple.swipescrolldirection" = false;
             WindowManager.EnableStandardClickToShowDesktop = false;
           };
+
+          system.activationScripts.applications.text =
+            let
+              env = pkgs.buildEnv {
+                name = "system-applications";
+                paths = config.environment.systemPackages;
+                pathsToLink = "/Applications";
+              };
+            in
+            pkgs.lib.mkForce ''
+              # Set up applications.
+              echo "setting up /Applications..." >&2
+              rm -rf /Applications/Nix\ Apps
+              mkdir -p /Applications/Nix\ Apps
+              find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
+              while read -r src; do
+                app_name=$(basename "$src")
+                echo "copying $src" >&2
+                ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
+              done
+            '';
 
           system.activationScripts = {
             extraActivation = {
@@ -143,7 +163,6 @@
               user = "liamdebell";
             };
           }
-          mac-app-util.darwinModules.default
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
