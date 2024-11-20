@@ -51,6 +51,7 @@
             pkgs.pnpm
             pkgs.terraform
             pkgs.fluxcd
+            pkgs.kind
           ];
 
           launchd.daemons.ollama = {
