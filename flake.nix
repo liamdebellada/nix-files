@@ -49,6 +49,7 @@
             pkgs.ollama
             pkgs.jetbrains.webstorm
             pkgs.pnpm
+            pkgs.terraform
           ];
 
           launchd.daemons.ollama = {
