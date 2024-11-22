@@ -52,6 +52,8 @@
             pkgs.terraform
             pkgs.fluxcd
             pkgs.kind
+            pkgs.qbittorrent
+            pkgs.mpv-unwrapped
           ];
 
           launchd.daemons.ollama = {
