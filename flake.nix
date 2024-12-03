@@ -55,6 +55,7 @@
             pkgs.qbittorrent
             pkgs.mpv-unwrapped
             pkgs.utm
+            pkgs.talosctl
           ];
 
           launchd.daemons.ollama = {
