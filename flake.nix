@@ -54,6 +54,7 @@
             pkgs.kind
             pkgs.qbittorrent
             pkgs.mpv-unwrapped
+            pkgs.utm
           ];
 
           launchd.daemons.ollama = {
