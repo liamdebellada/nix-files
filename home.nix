@@ -28,6 +28,7 @@
       key = "";
       sopsFile = ./secrets/kubeconfig.yaml;
       path = "/Users/liamdebell/.kube/config";
+      mode = "600";
     };
 
     secrets."hetzner/private" = {
