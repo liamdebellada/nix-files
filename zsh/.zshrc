@@ -27,6 +27,7 @@ alias ls=eza
 alias f=fzf
 alias c=pbcopy
 alias k=kubectl
+alias kswitch="kubectl config use-context"
 
 setopt prompt_subst
 autoload -U compinit && compinit
