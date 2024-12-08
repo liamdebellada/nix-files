@@ -56,6 +56,7 @@
             pkgs.mpv-unwrapped
             pkgs.utm
             pkgs.talosctl
+            pkgs.wrk
           ];
 
           launchd.daemons.ollama = {
