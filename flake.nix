@@ -57,6 +57,7 @@
             pkgs.utm
             pkgs.talosctl
             pkgs.wrk
+            pkgs.kubernetes-helm
           ];
 
           launchd.daemons.ollama = {
