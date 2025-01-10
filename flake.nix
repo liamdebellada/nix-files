@@ -34,12 +34,10 @@
             pkgs.neovim
             pkgs.mkalias
             pkgs.obsidian
-            pkgs.iterm2
             pkgs.ripgrep
             pkgs.eza
             pkgs.fzf
             pkgs.kubectl
-            pkgs.k0sctl
             pkgs.fnm
             pkgs.gh
             pkgs.sops
@@ -58,7 +56,8 @@
             pkgs.talosctl
             pkgs.wrk
             pkgs.kubernetes-helm
-	    pkgs.lens
+            pkgs.lens
+            pkgs.cookiecutter
           ];
 
           launchd.daemons.ollama = {
