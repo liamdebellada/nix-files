@@ -78,10 +78,10 @@
           homebrew = {
             enable = true;
             brews = [
-              "deno"
             ];
             casks = [
               "firefox@developer-edition"
+	      "eloston-chromium"
             ];
             masApps = {
               "Xcode" = 497799835;

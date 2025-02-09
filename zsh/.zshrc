@@ -34,3 +34,5 @@ autoload -U compinit && compinit
 
 PROMPT='%F{#c5adde}%~%f%F{#adcdde}%f # '
 
+PATH=$PATH:/Users/liamdebell/.deno/bin
+
